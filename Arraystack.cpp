@@ -1,10 +1,6 @@
 #include "Arraystack.h"
 
-ArrayStack::ArrayStack(){
-  posicion = 0;
-}
-
-bool ArrayStack::push(string cadena){
+bool Arraystack::push(string cadena){
   if(posicion == 5){
     posicion = 0;
     array[posicion]=cadena;
@@ -16,7 +12,7 @@ bool ArrayStack::push(string cadena){
   return false;
 }
 
-string ArrayStack::pop(){
+string Arraystack::pop(){
   if(isEmpty()){
     return 0;
   }else{
@@ -26,11 +22,9 @@ string ArrayStack::pop(){
   }
 }
 
-bool ArrayStack::isEmpty(){
+bool Arraystack::isEmpty(){
   if(posicion==0){
     return false;
   }
   return true;
 }
-
-ArrayStack::~ArrayStack(){}
