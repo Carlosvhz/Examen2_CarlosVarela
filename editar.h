@@ -1,6 +1,7 @@
 #ifndef EDITAR_H
 #define EDITAR_H
 
+#include <iostream>
 #include <string>
 #include <fstream>
 
@@ -9,12 +10,11 @@ using namespace std;
 class editar{
 
   private:
-    ofstream* archivo_o;
-    ifstream* archivo_i;
+    char* directorio;
 
   public:
-    editar();
-    editar(ofstream*,ifstream*);
+    editar(char*);
+    ~editar();
     friend ostream& operator <<(ostream&, const editar&);
     friend istream& operator >>(istream&,editar&);
 };

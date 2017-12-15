@@ -1,21 +1,28 @@
 #include "editar.h"
 
-editar::editar(){}
-
-editar(ofstream* ofs, ifstream* ifs){
-  archivo_o = ofs;
-  archivo_i = ifs;
+editar::editar(char* pdirectorio){
+  directorio = pdirectorio;
 }
+
 istream& operator >>(istream& input, editar& objeto){
 
   return input;
 }
 
 ostream& operator <<(ostream& output, const editar& objeto){
-  if(!archivo_i->fail()){
-    while(!archivo_i->eof()){
-
+  ifstream archivo;
+  archivo.open(objeto.directorio,ios::in);
+  if(!archivo.fail()){
+    string texto;
+    while(!archivo.eof()){
+      getline(archivo,texto);
+      output<<texto;
     }
   }
+  archivo.close();
   return output;
+}
+
+editar::~editar(){
+
 }

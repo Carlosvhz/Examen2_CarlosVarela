@@ -51,28 +51,32 @@ int main(){
 
 
 void editartexto(){
-  editar* edit;
-  ofstream archivo_o;
-  ifstream archivo_i;
+  ifstream archivo;
   char* directorio = new char[200];
+
   cout<<"Ingrese el directorio del archivo: ";
   cin>>directorio;
-  archivo_o.open(directorio,ios::out);
-  archivo_i.open(directorio,ios::in);
-  if(archivo_o.fail()||archivo_i.fail()){
+  archivo.open(directorio,ios::in);
+  if(archivo.fail()){
     cout<<" ## Archivo inexistente ## "<<endl;
-    archivo_o.close();
-    archivo_i.close();
+    archivo.close();
   }else{
+    editar* edit = new editar(directorio);
     char resp;
     Arraystack mystack;
-    edit = new editar();
+    string cambio;
     do{
-
+      cout<<"Dentro del texto: ";
+      cout<<(*edit);
+      cout<<endl<<"¿Que pondra de nuevo?: ";
+      cin>>cambio;
+      //mystack.push(cambio);
       cout<<"¿Desea volver a hacer cambios?: ";
       cin>>resp;
     }while(resp=='s'||resp=='S');
+    delete edit;
   }
+  delete [] directorio;
 }
 
 void creartexto(char* nombre){
