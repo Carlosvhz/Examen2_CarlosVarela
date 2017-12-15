@@ -1,18 +1,16 @@
-#include "ArrayStack.h"
+#include "Arraystack.h"
 
 ArrayStack::ArrayStack(){
-  size = 5;
-  array = new string[p_size];
   posicion = 0;
 }
 
 bool ArrayStack::push(string cadena){
-  if(posicion == size){
+  if(posicion == 5){
     posicion = 0;
-    array[pos]=cadena;
+    array[posicion]=cadena;
     return true;
   }else{
-    array[pos++]=cadena;
+    array[posicion++]=cadena;
     return true;
   }
   return false;

@@ -1,14 +1,17 @@
 #include <iostream>
-#include "stack.h"
-#include "ArrayStack.h"
+#include "Stack.h"
+#include "Arraystack.h"
+#include <string>
+#include <fstream>
 
+using namespace std;
 
 /* == Prototipo == */
 void creartexto(string);
 
 int main(){
   for(int i=0;i<3;i++){cout<<endl;}
-  cout<<" ==== Examen #2 ==== "<endl;
+  cout<<" ==== Examen #2 ==== "<<endl;
   int op;
   char resp;
   do{
@@ -36,4 +39,10 @@ int main(){
   }while(resp == 's'|| resp == 'S');
   cout<<" Bye :3 "<<endl;
   return 0;
+}
+
+void creartexto(string nombre){
+  ofstream archivo;
+  nombre+=".txt";
+  //archivo.open();
 }

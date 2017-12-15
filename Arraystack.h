@@ -1,13 +1,15 @@
 #ifndef ARRAYSTACK_H
 #define ARRAYSTACK_H
 
+#include <string>
 #include "Stack.h"
+
+using namespace std;
 
 class ArrayStack: public Stack{
 
   private:
-    char* array;
-    int size;
+    string array[5];
     int posicion;
 
   public:
